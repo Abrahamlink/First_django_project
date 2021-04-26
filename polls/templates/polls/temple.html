@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+</head>
+<body>
+    <article>
+        <H2>Новая Запись</H2>
+    </article>
+    <article>
+        <h2>Более Новая Запись</h2>
+    </article>
+    {% for number in fib %}
+    <p>
+        <a href="../article/{{ number }}">{{ number }}</a>
+    </p>
+    {% endfor %}
+</body>
+</html>

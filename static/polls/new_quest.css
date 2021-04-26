@@ -1,0 +1,29 @@
+div.old {
+    height:17vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-direction:column;
+}
+div.old form {
+    display:flex;
+    justify-content:space-between;
+    max-width: 500px;
+    width:500px;
+}
+div.old form input.button {
+    background-color:#26295a;
+    color: #FFF;
+    border:1px solid #26295a;
+    border-radius: 5px;
+}
+div.old form input.button:hover {
+    background-color:#202230;
+    color: #FFF;
+    border:1px solid #26295a;
+    border-radius: 5px;
+}
+#id_question_text {
+    height:35px;
+    width:250px;
+}

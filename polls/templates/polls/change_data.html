@@ -1,0 +1,48 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'polls/profile.css' %}">
+    <div class="profile">
+        <div class="main_info">
+            <form action="" method="post" class="edit_user" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="img">
+                    <img src="{{ user.avatar.url }}" class="img-fluid" alt="Responsive image" width="200" height="200" align="left">
+                    <font class="help_to_hold user_name_title">Username: </font>
+                    <input type="text" class="username" value="{{ user.username }}" name="username">
+                </div>
+                <font class="help_to_hold">First name:</font><input type="text" class="first_name" value="{{ user.first_name }}" name="first_name">
+                <font class="help_to_hold">Last name: </font><input type="text" class="last_name surname" value="{{ user.last_name }}" name="last_name">
+                    <input type="file" id="image-file" style="display:none" name="avatar">
+                    <input type="button" onclick="document.getElementById('image-file').click()" value="Change Avatar">
+                <div class="description">
+                    <h4>Self description</h4>
+                    <textarea class="description" name="self_description" cols="123">{{ user.self_description }}</textarea>
+                </div>
+                <div class="addition">
+                    <h4 class="container">Additional Information</h4>
+                    {% if user.birthday.month < 10 and user.birthday.day < 10 %}
+                    <h5> Birthday: </h5>
+                    <h5><input type="date" value="{{ user.birthday.year }}-0{{ user.birthday.month }}-0{{ user.birthday.day }}" name="birthday" class="add_information"></h5>
+                    {% elif user.birthday.day < 10 %}
+                    <h5> Birthday: </h5>
+                    <h5><input type="date" value="{{ user.birthday.year }}-{{ user.birthday.month }}-0{{ user.birthday.day }}" name="birthday" class="add_information"></h5>
+                    {% elif user.birthday.month < 10 %}
+                    <h5> Birthday: </h5>
+                    <h5><input type="date" value="{{ user.birthday.year }}-0{{ user.birthday.month }}-{{ user.birthday.day }}" name="birthday" class="add_information"></h5>
+                    {% else  %}
+                    <h5> Birthday: </h5>
+                    <h5><input type="date" value="{{ user.birthday.year }}-{{ user.birthday.month }}-{{ user.birthday.day }}" name="birthday" class="add_information"></h5>
+                    {% endif %}
+                    <h5> Tel number: </h5>
+                    <h5><input type="tel" value="{{ user.phone_number }}" name="phone_number" class="add_information"></h5>
+                    <h5> Email: </h5>
+                    <h5><input type="email" class="add_information" value="{{ user.email }}"></h5>
+                </div>
+                <div id="button">
+                    <input type="submit" value="SAVE" class="button" title="Save changes">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

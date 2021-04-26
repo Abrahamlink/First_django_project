@@ -1,0 +1,88 @@
+{% load static %}
+{% block navbar %}
+<link href="{% static 'polls/nav.css' %}" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0 main_list">
+      <li class="nav-item active main">
+        <a class="nav-link" href="{% url 'header' %}">Main<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'questions' %}">Questions<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'answers' %}">Answers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'analytics' %}">Analytics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'create_question' %}">Create new question</a>
+      </li>
+      <div class="blister">
+        {% if user.is_anonymous %}
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-toggle="modal">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reg" data-toggle="modal">Register</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'message' %}">
+              <img src="{% static 'polls/images/msg.png' %}" alt="messages" width="30px" height="30px" id="image-msg">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account' %}">{{ user.username }}'s profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+        {% endif %}
+      </div>
+<!--      {% block menu %}-->
+<!--      {% endblock %}-->
+    </ul>
+  </div>
+</nav>
+<div class="modal fade" id="auth">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h4 class="modal-title">Авторизация</h4>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'auth' %}" method="post" class="popup">
+          {% csrf_token %}
+          <input type="text" placeholder="Введит логин" name="name"/>
+          <input type="text" placeholder="Введит пароль" name="password"/><br/>
+          <input type="submit" value="Войти" class="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="reg">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h4 class="modal-title">Регистрация</h4>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'reg' %}" method="post" class="popup">
+          {% csrf_token %}
+          <input type="text" placeholder="Имя" name="firstname">
+          <input type="text" placeholder="Фамилия" name="lastname">
+          <input type="text" placeholder="email/логин" name="name">
+          <input type="tel" placeholder="Номер телефона" name="tel_number">
+          <input type="password" placeholder="Введит пароль" name="password"/>
+          <input type="password" placeholder="Повторите пароль" name="repeat_password"/><br/>
+          <input type="submit" value="Зарегистриоваться" class="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

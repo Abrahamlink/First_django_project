@@ -1,0 +1,44 @@
+* {padding:0; margin:0;}
+
+ul li {
+    list-style: none;
+}
+div.main{
+    height: 100vh;
+}
+
+div.users {
+    width: 70%;
+    margin: 0 auto;
+}
+div.users {
+    padding-top: 20px;
+}
+
+div.user {
+    padding-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+}
+
+div.user ul {
+    display: grid;
+    border-radius: 5px;
+    border: 2px solid #FF420E;
+    background-color: #F98866;
+    grid-template-columns: 15% 65% 20%;
+    padding: 5px 10px;
+}
+
+div.user ul li {
+}
+
+.user_info img {
+    border-radius: 36px;
+}
+
+.moves a {
+    text-decoration: none;
+    color:  DarkSlateBlue;
+}

@@ -1,0 +1,26 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'polls/analytics.css' %}" rel="stylesheet"/>
+<div class="main-block">
+    <div class="questions">
+        <h2 align="center" class="q-title">Questions</h2>
+        <ul>
+            {% for question in q_count %}
+            <li class="question-text">"{{ question.0 }}"<div class="count">{{ question.1 }}</div></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="answers">
+        <h2 align="center" class="a-title">Answers ({{ all_answer_count }})</h2>
+        <ul>
+            {% for answer in answers %}
+            <li class="answer-text">"{{ answer }}"<span class="for_what">question: "{{ answer.question.question_text }}"</span></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="main-block">
+    <a href="{% url 'users_analytics' %}">Users analytics</a>
+</div>
+{% endblock %}

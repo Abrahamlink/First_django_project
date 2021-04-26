@@ -1,0 +1,55 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'polls/users_analytics.css' %}" rel="stylesheet">
+<div class="main">
+    <div class="users">
+        <h2 align="center" class="q-title">USERS</h2>
+        <div class="user">
+            {% for user in users_data %}
+                <ul>
+                    <div class="avatar">
+                        <li class="user_info">
+                            <img src="{{ user.0.avatar.url }}" alt="user_avatar" width="70px" height="70px">
+                        </li>
+                    </div>
+                    <div class="info">
+                        <li class="user_info">
+                            {{ user.1 }}
+                        </li>
+                        <li class="user_questions_count">
+                            Question count: {{ user.2|length }}
+                        </li>
+                        <li class="user_answers_count">
+                            Answer count: {{ user.3|length }}
+                        </li>
+                    </div>
+                    <div class="moves">
+                        <a href="#send-message-{{ user.0.id }}" data-toggle="modal">write message</a>
+                        <br>
+                        <a href="../user_profile/{{ user.0.id }}">check profile</a>
+                    </div>
+                    <div class="modal fade" id="send-message-{{ user.0.id }}">
+                      <div class="modal-dialog modal-login">
+                        <div class="modal-content">
+                          <div class="modal-header bg-dark">
+                            <h4 class="modal-title">New message</h4>
+                          </div>
+                          <div class="modal-body">
+                            <form action="{% url 'write_message' %}" method="post" class="popup">
+                              {% csrf_token %}
+                              <textarea name="message" id="message_area" cols="10" rows="5" placeholder="Введит текст сообщения..."></textarea>
+                              <br>
+                              <input type="hidden" value="{{ user.0.id }}" name="host">
+                              <input type="submit" value="Отправить" class="submit">
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

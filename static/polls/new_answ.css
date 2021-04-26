@@ -1,0 +1,50 @@
+div.creater {
+    height:20vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-direction:column;
+}
+div.creater form {
+    display:flex;
+    justify-content:space-around;
+    max-width: 500px;
+    width:500px;
+}
+div.creater form input.textarea {
+    width:100%;
+    margin-right:10px;
+    height: 40px;
+}
+div.creater form input.button {
+    background-color:#26295a;
+    color: #FFF;
+    border:1px solid #26295a;
+    border-radius: 5px;
+}
+div.creater form input.button:hover {
+    background-color:#202230;
+    color: #FFF;
+    border:1px solid #26295a;
+    border-radius: 5px;
+}
+
+
+
+div.dot {
+    height:10vh;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+div.dot button {margin-right:20px;}
+
+div.dot button a {
+    padding: 0 10px;
+    text-decoration:none;
+    color: #0f0f0f;
+}
+
+div.dot button:hover {
+    background: silver;
+}

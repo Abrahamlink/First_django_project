@@ -1,0 +1,51 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'polls/messages.css' %}" rel="stylesheet"/>
+<div class="main">
+    <div class="info_legend">
+        <div style="background-color: #3182ce; padding: 3px 5px; border-radius: 5px 0 0 5px; margin-bottom: 3px; color: snow;"
+        class="important-info" align="center">
+            <font color="#2a4365" size="4"><b>Blue </b></font> = Полученные
+        </div>
+        <div style="background-color: #cf7d32; padding: 3px 5px; border-radius: 0 5px 5px 0; margin-bottom: 3px;" align="center"
+        class="important-info">
+            <font color="#b33b2b" size="4"><b>Orange </b></font> = Отправленные
+        </div>
+    </div>
+    <div class="message-container">
+        <ul class="message-list">
+            {% for message in host %}
+            <li>
+                <div class="message-title">
+                    <h5 align="center">Message</h5>
+                    <a href="../blog/delete_message/{{ message.id }}">
+                        <img src="{% static 'polls/images/delete-icon.png' %}" alt="del">
+                    </a>
+                </div>
+                <div class="message-text">
+                    <font class="text_of_message">{{ message.message }}</font>
+                    <font class="sender-name" >Sender: {{ message.sender }}</font>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <ul class="my_messages">
+            <li>
+                {% for message in send %}
+                <div class="message-title from-you">
+                    <h5 align="center">Message</h5>
+                    <a href="../blog/delete_message/{{ message.id }}">
+                        <img src="{% static 'polls/images/delete-icon.png' %}" alt="del">
+                    </a>
+                </div>
+                <div class="message-text your">
+                    <font class="text_of_message">{{ message.message }}</font>
+                    <font class="sender-name" >Host: {{ message.host }}</font>
+                </div>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

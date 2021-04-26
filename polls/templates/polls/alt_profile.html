@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Why you can't visit this page?</title>
+    <link rel="stylesheet" href="{% static 'polls/alternative_profile.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div ></div>
+        <div class="content">
+            <h1>Sorry, but...</h1>
+            <font>You haven't rights to visit this page.</font>
+            <p>This page is opened because you are <i>anonymous user</i>. You can authorize or create new account if it isn't</p>
+            <a href="{% url 'header' %}">Try to authorize on MAIN page</a>
+        </div>
+        <div></div>
+    </div>
+</body>
+</html>

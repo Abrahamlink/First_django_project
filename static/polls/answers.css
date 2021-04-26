@@ -1,0 +1,27 @@
+html {
+    margin-bottom:100px;
+}
+div.list {
+    padding-top: 20px;
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+ul.answer_list {
+    list-style-type:none;
+    border-bottom: 2px solid grey;
+    text-align:center;
+}
+div.list ol ul li h2 {
+    color: rgb(0, 96, 240);
+}
+span {
+    width: 100%;
+    display:flex;
+    justify-content:center;
+}
+span a {
+    margin: 10px 20px;
+}

@@ -1,0 +1,8 @@
+.but {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.but a {
+    margin:10px 20px;
+}

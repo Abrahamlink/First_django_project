@@ -1,0 +1,141 @@
+html {padding:0;margin:0;}
+div.profile {
+    width:100%;
+    height:100vh;
+    padding-top: 20px;
+}
+div.main_info {
+    padding-top: 30px;
+}
+div.main_info, div.description, div.questions, div.answers, div.add_info, div.addition {
+    display:block;
+    margin:0 auto;
+    max-width:1000px;
+}
+div.main_info form.edit_user {
+    padding: 0;
+}
+#button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+input.button {
+    width:100px;
+    border: 1px solid black;
+    background-color: lightblue;
+    border-radius: 5px;
+}
+div.description, div.answers, div.addition {
+    border-bottom:2px solid black;
+}
+
+div.main_info div.img img.img-fluid{
+    margin: 10px 20px 0 20px !important;
+    border: 2px solid silver;
+}
+div.questions, div.answers, div.add_info {
+    padding: 0 50px 0 50px;
+}
+
+div.add_info h5 {
+    margin: 0 20px 0 20px;
+}
+
+div.img {
+    display:block;
+}
+div.img a {
+    font-size:20px;
+    text-decoration:none;
+    color:rgb(20, 0, 50);
+    padding-left: 300px;
+}
+div.img input.username{
+    display:block;
+    width:300px;
+    margin-right:10%;
+    margin-top:0px;
+    border-radius: 5px;
+}
+div.question_list, div.answer_list {
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+div.question_list li h4, div.answer_list li h4 {
+    display:block;
+    min-width:200px;
+    float:left;
+}
+form.edit_user input.first_name, form.edit_user input.last_name  {
+    display:block;
+    width: 300px;
+    margin-right:10%;
+}
+div.question_list li, div.answer_list li {
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+div.answer_list li h4 span.for_what {
+    margin-left:5px;
+    font-size:14px;
+    opacity: .6;
+    width:auto;
+    display:inline-block;
+    margin:auto 5px;
+}
+div.addition h5 {
+    padding-left: 20px;
+}
+div.description h4, div.addition h4.container {
+    padding-left:50px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+div.description textarea.description {
+    margin-left:20px;
+    min-height: 150px;
+    height: auto;
+    padding: 2px;
+}
+#last {
+    margin: 0px !important;
+    position: relative;
+}
+#username {
+    padding-top: 10px;
+}
+.full_name {
+    position: relative;
+    top: 25px;
+}
+div.addition {
+    display: flex;
+    flex-direction: column;
+}
+.add_information {
+    width: 300px;
+}
+.answers_ul, .questions_ul {
+    padding-top: 15px;
+    margin: 0 !important;
+}
+.surname {
+    margin-bottom: 30px;
+}
+.user_name_title, .username {
+    position:relative;
+    top:5px;
+}
+
+.all-user-info {
+
+    margin:0 auto;
+    max-width:1000px;
+    width:1000px;
+    display:grid;
+    grid-template-columns: 22% 70% 8%;
+}
