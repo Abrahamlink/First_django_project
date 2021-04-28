@@ -63,6 +63,10 @@ ul.my_messages {
     display: grid;
     justify-content: end;
     padding-top: 5px;
+    text-decoration: none;
+}
+.sender-name > a {
+    color: #3182ce;
 }
 
 .message-title {

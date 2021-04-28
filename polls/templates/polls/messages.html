@@ -25,9 +25,30 @@
                 </div>
                 <div class="message-text">
                     <font class="text_of_message">{{ message.message }}</font>
-                    <font class="sender-name" >Sender: {{ message.sender }}</font>
+                    <font class="sender-name" >
+                        Sender: {{ message.sender }}
+                        <a class="sender-name" href="#send-message-{{ message.sender.id }}" data-toggle="modal"><b>Ответить</b></a>
+                    </font>
                 </div>
             </li>
+            <div class="modal fade" id="send-message-{{ message.sender.id }}">
+              <div class="modal-dialog modal-login">
+                <div class="modal-content">
+                  <div class="modal-header bg-dark">
+                    <h4 class="modal-title">New message</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{% url 'write_message' %}" method="post" class="popup">
+                      {% csrf_token %}
+                      <textarea name="message" id="message_area" cols="10" rows="5" placeholder="Введит текст сообщения..."></textarea>
+                      <br>
+                      <input type="hidden" value="{{ message.sender.id }}" name="host">
+                      <input type="submit" value="Отправить" class="submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
             {% endfor %}
         </ul>
         <ul class="my_messages">

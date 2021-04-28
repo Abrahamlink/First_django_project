@@ -283,7 +283,7 @@ def write_message(request):
             host = Participant.objects.get(id=request.POST['host'])
             new_message = Message(sender=user, host=host, message=message_text)
             new_message.save()
-        return HttpResponseRedirect('/polls/blog/analytics/users')
+        return HttpResponseRedirect('/polls/blog/messages')
 
 
 def delete_message(request, id):
