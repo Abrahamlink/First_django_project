@@ -22,5 +22,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls'), name='polls'),
-    path('categories/', include('categories.urls'), name='categories')
+    # path('categories/', include('categories.urls'), name='categories')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
