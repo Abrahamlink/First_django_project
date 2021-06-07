@@ -244,7 +244,8 @@ def change_data(request):
         user.self_description = request.POST['self_description']
         user.birthday = request.POST['birthday']
         user.phone_number = request.POST['phone_number']
-        user.avatar = request.FILES['avatar']
+        if len(request.FILES) != 0:
+            user.avatar = request.FILES['avatar']
 
         user.save()
         return HttpResponseRedirect('/polls/blog/user')
